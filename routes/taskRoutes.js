@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { Task, Tag } = require('../models');
+const authMiddleware = require('../middleware/authMiddleware');
+
+router.use(authMiddleware);
 
 router.post('/', async (req, res) => {
   try {

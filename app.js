@@ -2,12 +2,14 @@ const express = require('express');
 const { sequelize } = require('./models');
 const taskRoutes = require('./routes/taskRoutes');
 const tagRoutes = require('./routes/tagRoutes');
+const authRoutes = require('./routes/authRoutes'); 
 
 const app = express();
 app.use(express.json());
 
 app.use('/tasks', taskRoutes);
 app.use('/tags', tagRoutes);
+app.use('/auth', authRoutes); 
 
 sequelize
   .sync({ alter: true })
